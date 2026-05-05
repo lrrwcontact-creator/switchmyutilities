@@ -122,10 +122,9 @@ function PortalInner() {
   return (
     <div>
       <div style={s.hero}>
-        <div style={s.heroEyebrow}>SwitchMyUtilities.com</div>
-        <div style={s.heroTitle}>Stop chasing utility companies.</div>
-        <div style={s.heroSub}>We handle every transfer so you can focus on closing.</div>
-        <div style={s.badge}>Flat fee · No surprises · Done in days</div>
+        <div style={s.heroTitle}>Utility transfers, handled for you.</div>
+        <div style={s.heroSub}>Buying, selling, or switching property managers — we take care of every utility transfer so you don't have to.</div>
+        <div style={s.badge}>Flat fee · No surprises · Hassle-free</div>
       </div>
       <div style={s.stepDots}>{steps.map((_, i) => <StepDot key={i} active={i === step} done={i < step} />)}</div>
       <div style={s.container}>
