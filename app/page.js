@@ -111,6 +111,7 @@ function PortalInner() {
               <div style={{ fontSize: "11px", color: COLORS.inkLight, letterSpacing: "1px", textTransform: "uppercase", marginBottom: "4px" }}>Confirmation</div>
               <div style={{ fontSize: "22px", color: COLORS.accent }}>{successId}</div>
             </div>
+            <button style={{ ...s.btnSecondary, marginTop: "24px" }} onClick={() => window.location.href = "/"}>← Back to Home</button>
           </div>
         </div>
       </div>
@@ -122,11 +123,51 @@ function PortalInner() {
   return (
     <div>
       <div style={s.hero}>
+        
         <div style={s.heroTitle}>Utility transfers, handled for you.</div>
         <div style={s.heroSub}>Buying, selling, or switching property managers — we take care of every utility transfer so you don't have to.</div>
         <div style={s.badge}>Flat fee · No surprises · Hassle-free</div>
       </div>
       <div style={s.stepDots}>{steps.map((_, i) => <StepDot key={i} active={i === step} done={i < step} />)}</div>
+      <div style={s.container}>
+        {step === 0 && (
+          <div style={{ ...s.card, marginBottom: "0", background: COLORS.ink, border: "none", borderRadius: "0" }}>
+            <div style={{ maxWidth: "720px", margin: "0 auto", padding: "48px 24px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+                <div>
+                  <div style={{ fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", color: COLORS.accent, marginBottom: "16px" }}>Why We Built This</div>
+                  <div style={{ fontSize: "26px", color: "#FFF", fontFamily: "'Georgia',serif", lineHeight: "1.3", marginBottom: "20px", fontWeight: "400" }}>We got tired of being put on hold too.</div>
+                  <div style={{ fontSize: "14px", color: "#AAA9A8", lineHeight: "1.8", marginBottom: "16px" }}>
+                    As landlords and real estate investors, we've been through more utility transfers than we can count — sitting on hold, getting transferred between departments, calling back because the first rep gave us wrong information.
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#AAA9A8", lineHeight: "1.8", marginBottom: "16px" }}>
+                    Whether we were closing on a property, switching from a property manager to self-managing, or just trying to get utilities out of our name — it was always a painful, time-consuming process that nobody seemed to have solved.
+                  </div>
+                  <div style={{ fontSize: "14px", color: "#AAA9A8", lineHeight: "1.8" }}>
+                    So we built SwitchMyUtilities. One flat fee, we handle every call, every transfer, every confirmation. You just tell us what needs to move and we take it from there.
+                  </div>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  {[
+                    { icon: "🏡", title: "Built by landlords", desc: "We've experienced the same frustration firsthand across dozens of transactions." },
+                    { icon: "📋", title: "We handle everything", desc: "Every utility, every provider, every phone call — we manage the full transfer process for you." },
+                    { icon: "💰", title: "One flat fee", desc: "No hourly rates, no surprises. $79 for up to 3 utilities, $99 for 4 or more." },
+                    { icon: "⚡", title: "Fast turnaround", desc: "We begin processing within 1 business day and keep you updated every step of the way." },
+                  ].map((item) => (
+                    <div key={item.title} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+                      <div style={{ fontSize: "20px", marginTop: "2px" }}>{item.icon}</div>
+                      <div>
+                        <div style={{ fontSize: "13px", fontWeight: "700", color: "#FFF", marginBottom: "4px" }}>{item.title}</div>
+                        <div style={{ fontSize: "13px", color: "#AAA9A8", lineHeight: "1.6" }}>{item.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
       <div style={s.container}>
 
         {/* STEP 0 */}
