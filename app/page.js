@@ -3,24 +3,25 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const COLORS = {
-  bg: "#F7F4EF", surface: "#FFFFFF", ink: "#1A1612", inkLight: "#6B6560",
-  accent: "#C85C2D", accentLight: "#F0E8E0", border: "#E2DDD8",
+  bg: "#F4F6FA", surface: "#FFFFFF", ink: "#1A2440", inkLight: "#5A6480",
+  accent: "#C85C2D", accentLight: "#FAEDE6", border: "#DDE3EF",
+  blue: "#2B4C8C", blueLight: "#EEF2FA", blueDark: "#1A3066",
   success: "#2D7D46", successLight: "#E8F5ED",
 };
 
 const s = {
   app: { minHeight: "100vh", background: COLORS.bg, fontFamily: "'Georgia','Times New Roman',serif", color: COLORS.ink },
-  nav: { background: COLORS.ink, padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "60px" },
+  nav: { background: COLORS.blue, padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "60px" },
   navLogo: { color: "#FFF", fontSize: "18px", fontWeight: "700", letterSpacing: "0.5px" },
   navAccent: { color: COLORS.accent },
-  hero: { background: COLORS.ink, padding: "60px 40px 80px", textAlign: "center", borderBottom: `4px solid ${COLORS.accent}` },
+  hero: { background: COLORS.blue, padding: "60px 40px 80px", textAlign: "center", borderBottom: `4px solid ${COLORS.accent}` },
   heroEyebrow: { color: COLORS.accent, fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "16px" },
   heroTitle: { color: "#FFF", fontSize: "42px", fontWeight: "400", lineHeight: "1.2", maxWidth: "560px", margin: "0 auto 16px" },
   heroSub: { color: "#AAA9A8", fontSize: "16px", maxWidth: "440px", margin: "0 auto 32px", lineHeight: "1.6" },
   badge: { display: "inline-block", background: COLORS.accent, color: "#FFF", fontSize: "13px", padding: "6px 20px", borderRadius: "20px" },
   stepDots: { display: "flex", justifyContent: "center", gap: "8px", padding: "24px 0 0" },
   container: { maxWidth: "720px", margin: "0 auto", padding: "40px 24px" },
-  card: { background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: "8px", padding: "32px", marginBottom: "20px", boxShadow: "0 2px 8px rgba(26,22,18,0.06)" },
+  card: { background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: "8px", padding: "32px", marginBottom: "20px", boxShadow: "0 2px 12px rgba(43,76,140,0.08)" },
   sectionTitle: { fontSize: "13px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", color: COLORS.accent, marginBottom: "20px", paddingBottom: "10px", borderBottom: `2px solid ${COLORS.accentLight}` },
   row2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" },
   field: { marginBottom: "16px" },
@@ -35,7 +36,7 @@ const s = {
   btnRow: { display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "28px", gap: "12px" },
   btnPrimary: { background: COLORS.accent, color: "#FFF", border: "none", padding: "13px 32px", borderRadius: "5px", fontSize: "14px", fontFamily: "'Georgia',serif", cursor: "pointer", fontWeight: "700" },
   btnSecondary: { background: "none", color: COLORS.inkLight, border: `1.5px solid ${COLORS.border}`, padding: "12px 24px", borderRadius: "5px", fontSize: "14px", fontFamily: "'Georgia',serif", cursor: "pointer" },
-  feeBox: { background: COLORS.ink, borderRadius: "8px", padding: "24px", color: "#FFF", marginBottom: "20px", display: "flex", justifyContent: "space-between", alignItems: "center" },
+  feeBox: { background: COLORS.blue, borderRadius: "8px", padding: "24px", color: "#FFF", marginBottom: "20px", display: "flex", justifyContent: "space-between", alignItems: "center" },
   typeTag: { display: "inline-block", background: COLORS.accentLight, color: COLORS.accent, fontSize: "11px", padding: "2px 8px", borderRadius: "4px", marginRight: "4px", marginBottom: "2px", fontWeight: "600" },
   successBox: { textAlign: "center", padding: "60px 24px" },
   successIcon: { width: "64px", height: "64px", borderRadius: "50%", background: COLORS.successLight, border: `2px solid ${COLORS.success}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", fontSize: "28px" },
@@ -131,7 +132,7 @@ function PortalInner() {
       <div style={s.stepDots}>{steps.map((_, i) => <StepDot key={i} active={i === step} done={i < step} />)}</div>
       <div style={s.container}>
         {step === 0 && (
-          <div style={{ ...s.card, marginBottom: "0", background: COLORS.ink, border: "none", borderRadius: "0" }}>
+          <div style={{ ...s.card, marginBottom: "0", background: COLORS.blue, border: "none", borderRadius: "0" }}>
             <div style={{ maxWidth: "720px", margin: "0 auto", padding: "48px 24px" }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
                 <div>
@@ -363,6 +364,34 @@ function PortalInner() {
   );
 }
 
+function InstagramSection() {
+  return (
+    <div style={{ background: COLORS.blue, borderTop: `4px solid ${COLORS.accent}`, padding: "60px 24px", textAlign: "center" }}>
+      <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+        <div style={{ fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", color: COLORS.accent, marginBottom: "12px", fontFamily: "'Georgia',serif" }}>Follow Our Journey</div>
+        <div style={{ fontSize: "32px", color: "#FFF", fontFamily: "'Georgia',serif", fontWeight: "400", marginBottom: "12px" }}>We're Chase & Ian.</div>
+        <div style={{ fontSize: "15px", color: "#AAC4EF", lineHeight: "1.7", marginBottom: "32px", maxWidth: "440px", margin: "0 auto 32px" }}>
+          SF Bay Area landlords & real estate investors. Follow along as we build, invest, and share everything we learn along the way.
+        </div>
+        <a
+          href="https://www.instagram.com/collegecashflows/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: COLORS.accent, color: "#FFF", padding: "14px 28px", borderRadius: "6px", textDecoration: "none", fontSize: "14px", fontFamily: "'Georgia',serif", fontWeight: "700", letterSpacing: "0.5px" }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          @collegecashflows
+        </a>
+        <div style={{ marginTop: "16px", fontSize: "13px", color: "#7A9CC8" }}>2,700+ followers · Real estate investing content</div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div style={s.app}>
@@ -372,6 +401,7 @@ export default function Home() {
       <Suspense fallback={<div style={{ padding: "40px", textAlign: "center", color: COLORS.inkLight }}>Loading…</div>}>
         <PortalInner />
       </Suspense>
+      <InstagramSection />
     </div>
   );
 }
